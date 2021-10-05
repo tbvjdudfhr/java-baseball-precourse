@@ -16,11 +16,15 @@ public class GameController {
 	private static final int SIZE = 3;
 
 	public void start() {
-		while (true) {
+		do {
 			computer = new Computer();
 			computer.generateRandomNumbers();
 			playGame();
-		}
+		} while (reStart());
+	}
+
+	private boolean reStart() {
+		return inputView.newGame().equals(NEW_GAME);
 	}
 
 	private void playGame() {
